@@ -2,6 +2,8 @@ extends Node # Hello
 
 # Mo
 
+#Adding to the script
+
 this is a test
 # Temur 
 testing again
