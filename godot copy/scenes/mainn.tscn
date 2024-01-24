@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8vsn6rsqjyhv"]
+
+[ext_resource type="PackedScene" uid="uid://da6vtcite8x2e" path="res://scenes/tile_map.tscn" id="1_6irhg"]
+[ext_resource type="Script" path="res://scenes/mainn.gd" id="1_puuk2"]
+[ext_resource type="PackedScene" uid="uid://b3xcgu28faxhd" path="res://scenes/playerr.tscn" id="2_t7dig"]
+[ext_resource type="Script" path="res://scenes/BulletManagerr.gd" id="3_r60r2"]
+[ext_resource type="PackedScene" uid="uid://is8tho7u7rb2" path="res://bullett.tscn" id="4_a0acg"]
+[ext_resource type="PackedScene" uid="uid://hwn7fx0w36ln" path="res://scenes/enemy_spawnerr.tscn" id="5_gqq21"]
+[ext_resource type="PackedScene" uid="uid://bfsmkqeo6au46" path="res://scenes/HUDD.tscn" id="7_s0sk3"]
+[ext_resource type="PackedScene" uid="uid://djrjtdgnch7h" path="res://scenes/game_overr.tscn" id="8_6nruw"]
+
+[node name="Mainn" type="Node"]
+script = ExtResource("1_puuk2")
+
+[node name="TileMap" parent="." instance=ExtResource("1_6irhg")]
+
+[node name="Player1" parent="." instance=ExtResource("2_t7dig")]
+
+[node name="BulletManagerr" type="Node2D" parent="."]
+script = ExtResource("3_r60r2")
+bullet_scene = ExtResource("4_a0acg")
+
+[node name="EnemySpawnerr" parent="." instance=ExtResource("5_gqq21")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(391, 374)
+enabled = false
+zoom = Vector2(0.75, 0.75)
+
+[node name="HUD" parent="." instance=ExtResource("7_s0sk3")]
+offset = Vector2(0, 768)
+transform = Transform2D(1, 0, 0, 1, 0, 768)
+
+[node name="GameOVERR" parent="." instance=ExtResource("8_6nruw")]
+process_mode = 2
+
+[node name="waveoverTimerr" type="Timer" parent="."]
+process_mode = 2
+one_shot = true
+
+[node name="RestartTimerr" type="Timer" parent="."]
+process_mode = 2
+one_shot = true
+
+[connection signal="shoot" from="Player1" to="BulletManagerr" method="_on_player_1_shoot"]
+[connection signal="hit_p" from="EnemySpawnerr" to="." method="_on_enemy_spawnerr_hit_p"]
+[connection signal="timeout" from="waveoverTimerr" to="." method="_on_waveover_timerr_timeout"]
+[connection signal="timeout" from="RestartTimerr" to="." method="_on_restart_timerr_timeout"]

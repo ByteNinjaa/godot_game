@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://djrjtdgnch7h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q05sx"]
+bg_color = Color(0.458824, 0.0431373, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pw7x"]
+bg_color = Color(0.639216, 0.286275, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pei87"]
+bg_color = Color(0.321569, 0.0431373, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_613u3"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="GameOVERR" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q05sx")
+
+[node name="GameOVERLabell" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -68.0
+offset_right = 91.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WavesSurvivedLabell" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -21.0
+offset_right = 143.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "WAVES SURVIVED: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButtonn" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 32.0
+offset_right = 125.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_3pw7x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pei87")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_613u3")
+text = "RUN IT BACK"
